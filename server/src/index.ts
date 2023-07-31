@@ -1,4 +1,4 @@
-import express from 'express';
+import express, {Request, Response} from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
 
@@ -16,12 +16,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', calorieRouter);
 app.use('/user', userRouter);
 
-app.get('/', (req, res) => {
+app.get('/', (_req: Request, res: Response) => {
   res.send('hello world');
 });
 
 // Catch all
-app.use('*', (req, res) => {
+app.use('*', (_req: Request, res: Response) => {
   console.log("We've entered the catch all");
   res.status(404).send('Invalid Endpoint');
 });
