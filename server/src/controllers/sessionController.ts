@@ -6,11 +6,16 @@ const sessionController = {
     const token = res.locals.user._id;
     console.log(token);
 
-    res.cookie('token', token, {
-      httpOnly: true
+    // res.cookie('token', token, {
+    //   httpOnly: true
+    // });
+
+    res.cookie('name', 'test', {
+      httpOnly: true,
+      sameSite: 'none',
+      secure: true
     });
 
-    console.log("Token Cookie:", req.cookies.token);
     return next();
   },
 

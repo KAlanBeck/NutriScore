@@ -1,0 +1,18 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f0dfc8;
+}
+
+.login, .signup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  outline: #ededed solid 3px;
+  padding: 40px 50px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+  box-shadow: -4px 7px 10px 0px rgba(0,0,0,0.1);
+  color: var(--main-color);
+}
