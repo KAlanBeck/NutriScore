@@ -10,7 +10,7 @@ export default function Login() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    fetch('http://localhost:5000/user/login', {
+    fetch('/api/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

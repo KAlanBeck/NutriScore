@@ -10,11 +10,11 @@ const app = express();
 
 
 dotenv.config();
-
-app.use(cors({ credentials: true }));
 app.use(cookieParser());
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 app.use('/api', calorieRouter);
 app.use('/user', userRouter);
