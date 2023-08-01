@@ -4,10 +4,13 @@ import { Request, Response, NextFunction } from 'express';
 const sessionController = {
   createSession: async (req: Request, res: Response, next: NextFunction) => {
     const token = res.locals.user._id;
+    console.log(token);
 
     res.cookie('token', token, {
       httpOnly: true
     });
+
+    console.log("Token Cookie:", req.cookies.token);
     return next();
   },
 

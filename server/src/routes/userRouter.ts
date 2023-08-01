@@ -5,11 +5,11 @@ import sessionController from '../controllers/sessionController';
 const router = Router();
 
 router.post('/login', userController.login, sessionController.createSession, (req, res) => {
-  return res.status(200).send('login successful');
+  return res.status(200).json(res.locals.userID);
 });
 
 router.post('/signup', userController.signup, sessionController.createSession, (req, res) => {
-  return res.status(200).send('signup successful');
+  return res.status(200).json(res.locals.userID);
 });
 
 router.post('/meals', sessionController.verifySession, userController.addMeal, (req, res) => {

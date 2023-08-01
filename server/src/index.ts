@@ -1,14 +1,17 @@
 import express, {Request, Response} from 'express';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 import calorieRouter from './routes/calorieRouter';
 import userRouter from './routes/userRouter';
 
 const app = express();
 
+
 dotenv.config();
 
+app.use(cors({ credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

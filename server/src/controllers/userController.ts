@@ -27,8 +27,10 @@ const userController = {
         password: password
       });
 
+      res.locals.userID = user._id;
       res.locals.user = user;
       return next();
+
     } catch(error) {
       console.log(`${error} in userController.signup`);
     }
@@ -47,8 +49,15 @@ const userController = {
         password: password
       });
 
+      if(!user) {
+        return res.status(404).send('error');
+      }
+
+      res.locals.userID = user._id;
       res.locals.user = user;
+      console.log(user);
       return next();
+
     } catch(error) {
       console.log(`${error} in userController.login`);
     }
@@ -75,7 +84,8 @@ const userController = {
   },
 
   getMeals: async (req: Request, res: Response, next: NextFunction) => {
-    const { user } = res.locals
+    const { user } = res.locals;
+    console.log(user);
     
     res.locals.meals = user.meals;
     return next();
