@@ -1,35 +1,56 @@
 // import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import Header from "../components/Header"
 
 export default function Main() {
-  const userID = useLocation().state.user;
-  // const [meals, setMeals] = useState({});
+  const [meal, setMeal] = useState('breakfast');
+  const [food, setFood] = useState('');
+  const [responseData, setResponseData] = useState(null);
 
-  // useEffect(() => {
-  //   const fetchMeals = async () => {
-  //     try {
-  //       const response = await fetch("http://localhost:5000/user/meals", {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //       });
-  //       const data = await response.json();
-  //       setMeals(data); 
-  //       console.log(meals);
-  //     } catch (error) {
-  //       console.error("Error fetching meals:", error);
-  //     }
-  //   };
+  const handleMealChange = (event) => {
+    setMeal(event.target.value);
+  };
 
-  //   fetchMeals();
-  // }, []); 
+  const handleFoodChange = (event) => {
+    setFood(event.target.value);
+  };
+
+  const handleAddFood = async () => {
+    try {
+      const response = await fetch("/api/api", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
+      setResponseData(data);
+    } catch (error) {
+      console.log(error);
+      // Handle error
+    }
+  };
+
+  const handleLogout = () => {
+    // Handle logout functionality here
+  };
 
   return (
     <>
-      <div>Hello World</div>
-      <p>{userID}</p>
-      {/* <p>{meals.breakfast}</p> */}
+      <Header
+      meal={meal}
+      setMeal={setMeal}
+      food={food}
+      setFood={setFood}
+      responseData={responseData}
+      setResponseData={setResponseData}
+      onMealChange={handleMealChange}
+      onFoodChange={handleFoodChange}
+      onAddFood={handleAddFood}
+      onLogout={handleLogout}
+       />
+      
     </>
   )
 }
