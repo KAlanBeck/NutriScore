@@ -10,10 +10,6 @@ const sessionController = {
       httpOnly: true
     });
 
-    // res.cookie('name', 'test', {
-    //   httpOnly: true,
-    // });
-
     return next();
   },
 
@@ -29,6 +25,7 @@ const sessionController = {
 
       res.locals.user = user;
       return next();
+      
     } catch(error) {
       console.log(`${error} in userController.signup`);
     }

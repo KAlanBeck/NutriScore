@@ -64,8 +64,7 @@ const userController = {
   },
 
   addMeal: async (req: Request, res: Response, next: NextFunction) => {
-    const { meal, food } = req.body as MealData;
-    const { user } = res.locals;
+    const { user, nutrition, meal } = res.locals;
 
     try {
       if (!user || !user.meals) {
@@ -73,7 +72,7 @@ const userController = {
         return res.status(404).json({ error: 'User not found' });
       }
 
-      user.meals[meal].push(food);
+      user.meals[meal].push(nutrition);
 
       await user.save();
 
@@ -85,7 +84,6 @@ const userController = {
 
   getMeals: async (req: Request, res: Response, next: NextFunction) => {
     const { user } = res.locals;
-    console.log(user);
     
     res.locals.meals = user.meals;
     return next();
