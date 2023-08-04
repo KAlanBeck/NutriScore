@@ -5,7 +5,7 @@ import sessionController from '../controllers/sessionController';
 
 const router = Router();
 
-router.post('/api', sessionController.verifySession, calorieController.getNutrition, userController.addMeal, userController.getMeals, (req, res) => {
+router.post('/food', sessionController.verifySession, calorieController.getNutrition, userController.addMeal, (req, res) => {
   return res.status(200).json(res.locals.meals);
 });
 

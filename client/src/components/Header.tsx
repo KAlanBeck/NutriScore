@@ -46,28 +46,29 @@ export default function Header({
     
   // };
 
-  const handleAddFood = async () => {
-    await onAddFood();
+  // const handleAddFood = async () => {
+  //   await onAddFood();
     // The responseData state has been updated with the response data.
     // You can access and use it as needed.
-  };
+  // };
 
   return (
     <>
       <h1>NutriScore</h1>
       <select value={meal} onChange={onMealChange}>
-        <option value="breakfast">Breakfast</option>
-        <option value="lunch">Lunch</option>
-        <option value="dinner">Dinner</option>
-        <option value="snacks">Snacks</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="Lunch">Lunch</option>
+        <option value="Dinner">Dinner</option>
+        <option value="Snacks">Snacks</option>
       </select>
       <input
         placeholder="Food"
         value={food}
         onChange={onFoodChange}
+        required
       ></input>
-      <button onClick={handleAddFood}>Add Food</button>
-      <button onClick={handleLogout}>Logout</button>
+      <button onClick={onAddFood}>Add Food</button>
+      <button>Logout</button>
     </>
   );
 }

@@ -55,7 +55,6 @@ const userController = {
 
       res.locals.userID = user._id;
       res.locals.user = user;
-      console.log(user);
       return next();
 
     } catch(error) {
@@ -67,16 +66,15 @@ const userController = {
     const { user, nutrition, meal } = res.locals;
 
     try {
-      if (!user || !user.meals) {
-        console.log('User not found');
-        return res.status(404).json({ error: 'User not found' });
-      }
+      const updatedUser = await User.findByIdAndUpdate(
+        user._id,
+        { $push: { [`meals.${meal}`]: nutrition } },
+        { new: true } 
+      );
 
-      user.meals[meal].push(nutrition);
-
-      await user.save();
-
+      res.locals.meals = updatedUser?.meals;
       return next();
+
     } catch(error) {
       console.log(`${error} in userController.addMeal`);
     }
@@ -84,7 +82,7 @@ const userController = {
 
   getMeals: async (req: Request, res: Response, next: NextFunction) => {
     const { user } = res.locals;
-    
+
     res.locals.meals = user.meals;
     return next();
   },

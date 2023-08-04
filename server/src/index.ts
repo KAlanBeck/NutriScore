@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use('/api', calorieRouter);
+app.use('/nutrition', calorieRouter);
 app.use('/user', userRouter);
 
 app.get('/', (_req: Request, res: Response) => {

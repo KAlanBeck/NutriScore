@@ -23,19 +23,19 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   meals: {
-    breakfast: {
+    Breakfast: {
       type: [],
       default: [],
     },
-    lunch: {
+    Lunch: {
       type: [],
       default: [],
     },
-    dinner: {
+    Dinner: {
       type: [],
       default: [],
     },
-    snacks: {
+    Snacks: {
       type: [],
       default: [],
     },

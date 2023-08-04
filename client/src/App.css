@@ -16,3 +16,42 @@ body {
   box-shadow: -4px 7px 10px 0px rgba(0,0,0,0.1);
   color: var(--main-color);
 }
+
+/* In your CSS file or style block */
+.mealCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mealCard {
+  width: 23%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mealCard h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.mealCard p {
+  margin: 5px 0;
+}
+
+/* Optional: Add some responsive styles */
+@media (max-width: 768px) {
+  .mealCard {
+    width: 48%;
+  }
+}
+
+@media (max-width: 576px) {
+  .mealCard {
+    width: 100%;
+  }
+}
