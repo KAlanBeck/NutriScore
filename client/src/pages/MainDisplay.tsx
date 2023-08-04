@@ -88,9 +88,7 @@ export default function Main() {
                 <MealCards key={mealType} mealType={mealType} foods={responseData[mealType]} />
               ))}
       </div>
-      <TotalsDisplay />
-      
-      
+      <TotalsDisplay responseData={responseData}/>
       
     </>
   )
