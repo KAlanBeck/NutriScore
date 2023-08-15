@@ -29,6 +29,11 @@ const sessionController = {
       console.log(`${error} in userController.signup`);
     }
   },
+
+  endSession: async (req: Request, res: Response, next: NextFunction) => {
+    res.clearCookie('token');
+    return next();
+  },
 }
 
 export default sessionController;

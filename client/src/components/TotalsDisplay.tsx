@@ -1,10 +1,9 @@
-
-import React from "react";
+import PieChart from "./PieChart";
 
 const TotalsDisplay = ({ responseData }) => {
 
   if (!responseData) {
-    return null; // Return null or a loading indicator while waiting for responseData
+    return null; 
   }
   
   const calculateTotal = (mealType) => {
@@ -32,14 +31,21 @@ const TotalsDisplay = ({ responseData }) => {
     carbs: totalBreakfast.carbs + totalLunch.carbs + totalDinner.carbs + totalSnacks.carbs,
   };
 
+  
+
   return (
-    <div>
-      <h2>Totals</h2>
-      <p>Total Calories: {grandTotal.calories}</p>
-      <p>Total Fat: {grandTotal.fat}</p>
-      <p>Total Protein: {grandTotal.protein}</p>
-      <p>Total Carbs: {grandTotal.carbs}</p>
-    </div>
+    <>
+      <div className="totalsData">
+        <h2>Daily Total</h2>
+        <h3>Calories: {grandTotal.calories}</h3>
+        <h3>Fat: {grandTotal.fat} g</h3>
+        <h3>Protein: {grandTotal.protein} g</h3>
+        <h3>Carbs: {grandTotal.carbs} g</h3>
+      </div>
+      <div>
+        <PieChart chartData={grandTotal}/>
+      </div>
+    </>
   );
 };
 

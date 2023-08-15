@@ -12,6 +12,10 @@ router.post('/signup', userController.signup, sessionController.createSession, (
   return res.status(200).json(res.locals.userID);
 });
 
+router.post('/logout', sessionController.endSession, (req, res) => {
+  return res.sendStatus(200);
+});
+
 router.post('/meals', sessionController.verifySession, userController.addMeal, (req, res) => {
   return res.status(200).send('food added to favorites');
 });

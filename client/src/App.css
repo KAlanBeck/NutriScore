@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f0dfc8;
+  font-family: Georgia (serif);
+  background-color: #CFE8EF;
 }
 
 .login, .signup{
@@ -22,6 +22,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  padding: 5px 50px 5px 50px;
 }
 
 .mealCard {
@@ -31,12 +32,13 @@ body {
   border-radius: 5px;
   margin-bottom: 20px;
   box-sizing: border-box;
+  background-color: #AED1E6;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .mealCard h2 {
   margin-bottom: 10px;
-  font-size: 18px;
+  /* font-size: 18px; */
 }
 
 .mealCard p {
@@ -61,12 +63,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
+  background-color: #C6DBF0;
   padding: 10px;
 }
 
 .logo {
-  font-size: 24px;
+  /* font-size: 24px; */
   font-weight: bold;
   margin-right: 20px;
 }
@@ -105,3 +108,19 @@ body {
   cursor: pointer;
 }
 
+.macros {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2px 2px 3px;
+}
+
+.totalsDisplay {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #A0C4E2;
+}
+
+.totalsData {
+  padding-right: 50px;
+}
