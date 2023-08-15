@@ -1,5 +1,6 @@
 import User from '../models/userModel';
 import { Request, Response, NextFunction } from 'express';
+import bcrypt from 'bcrypt'
 
 interface MealData {
   meal: keyof Meals;
@@ -22,9 +23,11 @@ const userController = {
     }
 
     try {
+      const hashedPassword = await bcrypt.hash(password, 10);
+
       const user = await User.create({
         username: username,
-        password: password
+        password: hashedPassword
       });
 
       res.locals.userID = user._id;
@@ -45,12 +48,17 @@ const userController = {
 
     try {
       const user = await User.findOne({
-        username: username,
-        password: password
+        username: username
       });
 
       if(!user) {
         return res.status(404).send('error');
+      }
+
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+
+      if (!isPasswordValid) {
+        return res.status(400).json('invalid credentials');
       }
 
       res.locals.userID = user._id;
