@@ -52,7 +52,7 @@ const userController = {
       });
 
       if(!user) {
-        return res.status(404).send('error');
+        return res.status(404).json('username not found');
       }
 
       const isPasswordValid = await bcrypt.compare(password, user.password);

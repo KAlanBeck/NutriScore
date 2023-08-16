@@ -17,7 +17,6 @@ body {
   color: var(--main-color);
 }
 
-/* In your CSS file or style block */
 .mealCardsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -38,14 +37,12 @@ body {
 
 .mealCard h2 {
   margin-bottom: 10px;
-  /* font-size: 18px; */
 }
 
 .mealCard p {
   margin: 5px 0;
 }
 
-/* Optional: Add some responsive styles */
 @media (max-width: 768px) {
   .mealCard {
     width: 48%;
@@ -58,18 +55,15 @@ body {
   }
 }
 
-/* In your CSS file or style block */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #f1f1f1; */
   background-color: #C6DBF0;
   padding: 10px;
 }
 
 .logo {
-  /* font-size: 24px; */
   font-weight: bold;
   margin-right: 20px;
 }

@@ -8,9 +8,9 @@ const sessionController = {
   const id = res.locals.user._id
 
     try {
-      const token = sign({ userId: id }, process.env.SECRET_KEY!); // Create token
+      const token = sign({ userId: id }, process.env.SECRET_KEY!); 
       
-      res.cookie('token', token); // Set the token in a cookie
+      res.cookie('token', token); 
       
       return next();
     } catch (error) {
@@ -20,26 +20,11 @@ const sessionController = {
   },
 
   verifySession: async (req: Request, res: Response, next: NextFunction) => {
-    // const { token } = req.cookies;
-
-    // if (!token) {
-    //   console.log('invalid token in sessionController.verifySession');
-    // }
-
-    // try {
-    //   const user = await User.findById(token);
-
-    //   res.locals.user = user;
-    //   return next();
-      
-    // } catch(error) {
-    //   console.log(`${error} in sessionController.verifySession`);
-    // }
     const { token } = req.cookies;
 
     if (!token) {
       console.log('Invalid token in sessionController.verifySession');
-      return next(); // Proceed to next middleware, but user data will be missing
+      return next(); 
     }
 
     try {
@@ -48,14 +33,14 @@ const sessionController = {
 
       if (!user) {
         console.log('User not found in sessionController.verifySession');
-        return next(); // Proceed to next middleware, but user data will be missing
+        return next(); 
       }
 
       res.locals.user = user;
       return next();
     } catch (error) {
       console.log(`${error} in sessionController.verifySession`);
-      return next(); // Proceed to next middleware, but user data will be missing
+      return next(); 
     }
 
   },
