@@ -1,42 +1,120 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  font-family: Georgia (serif);
+  background-color: #CFE8EF;
+}
+
+.login, .signup{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  outline: #ededed solid 3px;
+  padding: 40px 50px;
   text-align: center;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+  box-shadow: -4px 7px 10px 0px rgba(0,0,0,0.1);
+  color: var(--main-color);
+}
+
+.mealCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px 50px 5px 50px;
+}
+
+.mealCard {
+  width: 23%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background-color: #AED1E6;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mealCard h2 {
+  margin-bottom: 10px;
+}
+
+.mealCard p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .mealCard {
+    width: 48%;
+  }
+}
+
+@media (max-width: 576px) {
+  .mealCard {
+    width: 100%;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #C6DBF0;
+  padding: 10px;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  font-weight: bold;
+  margin-right: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mealSelectionContainer {
+  display: flex;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.mealSelectionContainer select {
+  margin-right: 10px;
 }
 
-.card {
-  padding: 2em;
+.mealSelectionContainer input {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.read-the-docs {
-  color: #888;
+.mealSelectionContainer button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logoutButton {
+  padding: 5px 10px;
+  border: none;
+  background-color: #f44336;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.macros {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2px 2px 3px;
+}
+
+.totalsDisplay {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #ccc;
+  background-color: #A0C4E2;
+}
+
+.totalsData {
+  padding-right: 50px;
 }
