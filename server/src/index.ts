@@ -8,13 +8,11 @@ import userRouter from './routes/userRouter';
 
 const app = express();
 
-
 dotenv.config();
 app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 app.use('/nutrition', calorieRouter);
 app.use('/user', userRouter);
